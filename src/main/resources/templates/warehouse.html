@@ -1,10 +1,202 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome to Warehouse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
+<fieldset align="center" width="50%">
+
+    <h2 class="list-group-item active"> Welcome to the Warehouse application</h2>
+    <h5 class="text-primary"> Author: Natalia Kolczyk </h5>
+    <br>
+
+</fieldset>
+
+
+<div class="container">
+    <h3>
+        <a href="https://primestudyhub.blogspot.com/search/label/Bootstrap%204" target="_blank">ADD NEW PRODUCT</a></h3>
+    <form class="needs-validation" novalidate th:action="@{/addProduct}" method="post">
+        <div class="form-row">
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> Product name</div>
+                </div>
+                <input type="text" class="form-control" th:name="name" id="name" placeholder="Police car" required>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter name
+                </div>
+            </div>
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> Category ID</div>
+                </div>
+                <input type="text" class="form-control" th:name="categoryID" id="categoryID" placeholder="P14625"
+                       required>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter category ID
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Date of purchase</div>
+                </div>
+                <input type="text" class="form-control" th:name="dateOfPurchase" id="dateOfPurchase"
+                       placeholder="31-12-2020" required>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter date of purchase
+                </div>
+            </div>
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Contractor</div>
+                </div>
+                <select class="custom-select" th:name="contractor" id="contractor" required>
+                    <option value="">- Select a contractor -</option>
+                    <option value="1">French company</option>
+                    <option value="2">German company</option>
+                    <option value="1">Italian company</option>
+                    <option value="2">British company</option>
+                </select>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please select a contractor
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Tracking number</div>
+                </div>
+                <input type="number" class="form-control" th:name="trackingNumber" id="trackingNumber"
+                       placeholder="5434589792892" required>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter tracking number
+                </div>
+            </div>
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Country od posting</div>
+                </div>
+                <select class="custom-select" th:name="countryOfPosting" id="countryOfPosting" required>
+                    <option value="">- Select a country -</option>
+                    <option value="1">France</option>
+                    <option value="2">Germany</option>
+                    <option value="1">Italy</option>
+                    <option value="2">Great Britain</option>
+                </select>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please select a country of posting
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Price of purchase</div>
+                </div>
+                <input type="text" class="form-control" th:name="purchasePrise" id="purchasePrice" placeholder="230"
+                       required>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter price of purchase
+                </div>
+            </div>
+
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Delivery courrier</div>
+                </div>
+                <input type="text" class="form-control" th:name="deliveryCourrier" id="deliveryCourrier"
+                       placeholder="UPS" required>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter delivery courrier
+                </div>
+            </div>
+            <div class="input-group col-md-4 mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Status</div>
+                </div>
+                <select class="custom-select" th:name="statusInWarehouse" id="statusInWarehouse" required>
+                    <option value="">- Select status -</option>
+                    <option value="1">At request</option>
+                    <option value="2">In stock</option>
+                    <option value="1">Sold out</option>
+                    <option value="2">Other</option>
+                </select>
+                <div class="valid-feedback">
+                    great!
+                </div>
+                <div class="invalid-feedback">
+                    Please select a status
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+</div>
+
+<br>
+
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>productID</th>
+        <th>name</th>
+        <th>categoryID</th>
+        <th>dateOfPurchase</th>
+        <th>purchasePrice</th>
+        <th>contractor</th>
+        <th>trackingNumber</th>
+        <th>countryOfPosting</th>
+        <th>deliveryCourrier</th>
+        <th>statusInWarehouse</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td scope="row" th:each="position : ${@ProductController.getProduct()}"></td>
+        <td th:text="${position.getProductID}"></td>
+        <td></td>
+    </tr>
+
+    </tbody>
+</table>
+
+
 </body>
 </html>
+
