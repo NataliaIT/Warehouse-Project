@@ -20,6 +20,14 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.48'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+	compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+	compile group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.11.RELEASE'
+	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.3.RELEASE'
+	//implementation 'android.arch.persistence.room:runtime:1.1.1'
+	//annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
 }
 
 test {
