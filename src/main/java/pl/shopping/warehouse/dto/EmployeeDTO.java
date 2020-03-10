@@ -2,18 +2,18 @@ package pl.shopping.warehouse.dto;
 
 public class EmployeeDTO {
 
-    private Integer employeeID;
+    private String employeeID;
     private String surname;
     private String password;
 
     public EmployeeDTO() {
     }
 
-    public Integer getEmployeeID() {
+    public String getEmployeeID() {
         return employeeID;
     }
 
-    public EmployeeDTO setEmployeeID(Integer employeeID) {
+    public EmployeeDTO setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
         return this;
     }
