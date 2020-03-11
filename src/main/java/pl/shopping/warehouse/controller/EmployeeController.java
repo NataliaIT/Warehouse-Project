@@ -30,13 +30,13 @@ public class EmployeeController {
         return ResponseEntity.status(HttpStatus.OK).body(employees);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<EmployeeDTO> createEmployeeAccount(@RequestBody EmployeeDTO employeeDTO) {
-        Employee employeeToSave = EmployeeDTOToEmployeeConverter.convert(employeeDTO);
-        Employee savedEmployee = employeeRepository.save(employeeToSave);
-        EmployeeDTO convertedEmployeeDTO = EmployeeToEmployeeDTOConverter.convert(savedEmployee);
-        return ResponseEntity.status(HttpStatus.CREATED).body(convertedEmployeeDTO);
-    }
+//    @PostMapping("/create")
+//    public ResponseEntity<EmployeeDTO> createEmployeeAccount(@RequestBody EmployeeDTO employeeDTO) {
+//        Employee employeeToSave = EmployeeDTOToEmployeeConverter.convert(employeeDTO);
+//        Employee savedEmployee = employeeRepository.save(employeeToSave);
+//        EmployeeDTO convertedEmployeeDTO = EmployeeToEmployeeDTOConverter.convert(savedEmployee);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(convertedEmployeeDTO);
+//    }
 
     //    @PostMapping("/login")
 //    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
@@ -53,22 +53,17 @@ public class EmployeeController {
 //            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nie znaleziono użytkownika");
 //        }
 //    }
-    @PostMapping("/login")
-    public String login(@ModelAttribute LoginDTO loginDTO) {
-        Optional<Employee> optionalEmployee =
-                employeeRepository.findByEmployeeIDAndPassword(loginDTO.getEmployeeID(), loginDTO.getPassword());
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute LoginDTO loginDTO) {
+//        Optional<Employee> optionalEmployee =
+//                employeeRepository.findByEmployeeIDAndPassword(loginDTO.getEmployeeID(), loginDTO.getPassword());
+//
+//        //EmployeeDTO userDTO = EmployeeToEmployeeDTOConverter.convert(optionalEmployee.get());
+//        if (optionalEmployee.isPresent()) return "warehouse";
+//        else {
+//            return "invalidLogin";
+//        }
+//    }
 
-        //EmployeeDTO userDTO = EmployeeToEmployeeDTOConverter.convert(optionalEmployee.get());
-        if (optionalEmployee.isPresent()) return "warehouse";
-        else {
-            return "invalidLogin";
-        }
-    }
 
-    @PostMapping("/alwaysLogin")
-    public String alwaysLogin(@ModelAttribute LoginDTO loginDTO) {
-
-        return "warehouse";
-
-    }
 }

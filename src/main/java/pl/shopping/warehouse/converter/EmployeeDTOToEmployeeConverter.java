@@ -10,6 +10,8 @@ public class EmployeeDTOToEmployeeConverter {
         Employee employee =new Employee();
         employee.setEmployeeID(employeeDTO.getEmployeeID());
         employee.setSurname(employeeDTO.getSurname());
+        employee.setFirstname(employeeDTO.getFirstname());
+        employee.setUsername(employeeDTO.getUsername());
         return employee;
     }
 }

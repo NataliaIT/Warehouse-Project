@@ -15,8 +15,10 @@ import java.util.Collections;
 public class Employee implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String employeeID;
+    private Integer employeeID;
+    private String firstname;
     private String surname;
+    private String username;
     private String password;
     private Boolean active;
     private String role;
@@ -26,12 +28,21 @@ public class Employee implements UserDetails {
         this.role = "ROLE_USER";
     }
 
-    public String getEmployeeID() {
+    public Integer getEmployeeID() {
         return employeeID;
     }
 
-    public Employee setEmployeeID(String employeeID) {
+    public Employee setEmployeeID(Integer employeeID) {
         this.employeeID = employeeID;
+        return this;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public Employee setFirstname(String firstname) {
+        this.firstname = firstname;
         return this;
     }
 
@@ -65,10 +76,17 @@ public class Employee implements UserDetails {
         return role;
     }
 
+    public Employee setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
     public Employee setRole(String role) {
         this.role = role;
         return this;
     }
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -78,7 +96,7 @@ public class Employee implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.employeeID;
+        return this.username;
     }
 
     @Override
@@ -105,7 +123,9 @@ public class Employee implements UserDetails {
     public String toString() {
         return "Employee{" +
                 "employeeID=" + employeeID +
+                ", firstname='" + firstname + '\'' +
                 ", surname='" + surname + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", active=" + active +
                 ", role='" + role + '\'' +

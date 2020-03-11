@@ -9,6 +9,8 @@ public class EmployeeToEmployeeDTOConverter {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeID(employee.getEmployeeID());
         employeeDTO.setSurname(employee.getSurname());
+        employeeDTO.setFirstname(employee.getFirstname());
+        employeeDTO.setUsername(employee.getUsername());
         return employeeDTO;
     }
 }

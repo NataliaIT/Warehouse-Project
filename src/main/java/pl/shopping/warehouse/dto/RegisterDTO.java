@@ -2,18 +2,18 @@ package pl.shopping.warehouse.dto;
 
 public class RegisterDTO {
 
-    private String employeeID;
+    private String username;
     private String password;
 
     public RegisterDTO() {
     }
 
-    public String getEmployeeID() {
-        return employeeID;
+    public String getUsername() {
+        return username;
     }
 
-    public RegisterDTO setEmployeeID(String employeeID) {
-        this.employeeID = employeeID;
+    public RegisterDTO setUsername(String username) {
+        this.username = username;
         return this;
     }
 
@@ -29,7 +29,7 @@ public class RegisterDTO {
     @Override
     public String toString() {
         return "RegisterDTO{" +
-                "employeeID='" + employeeID + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
