@@ -16,6 +16,7 @@ import pl.shopping.warehouse.dto.RegisterDTO;
 import pl.shopping.warehouse.entity.Employee;
 import pl.shopping.warehouse.entity.Product;
 import pl.shopping.warehouse.repository.EmployeeRepository;
+import pl.shopping.warehouse.repository.ProductRepository;
 import pl.shopping.warehouse.security.WebSecurityConfig;
 
 @Controller
@@ -26,6 +27,10 @@ public class MainController {
 
     @Autowired
     EmployeeRepository employeeRepository;
+
+    @Autowired
+    ProductRepository productRepository;
+
 
 
     @GetMapping("/")
@@ -47,15 +52,6 @@ public class MainController {
 //            return "index";
 //        }
     }
-//    @GetMapping("/")
-//    public String mainPage(Model model){
-//        return "index";
-//    }
-
-//    @GetMapping("/products")
-//    public String warehouse(Model model){
-//        return "warehouse";
-//    }
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -93,23 +89,23 @@ public class MainController {
     }
 //
 //
-//    @PostMapping("/products/add")
-//    public String add(@ModelAttribute ProductDTO productDTO){
-//        ProductDTO createdProductDTO = new ProductDTO();
-//        Product createdProduct = new Product();
-//        createdProduct.setPurchasePrice(productDTO.getPurchasePrice());
-//        createdProduct.setDateOfPurchase(productDTO.getDateOfPurchase());
-//        createdProduct.setDeliveryCourrier(productDTO.getDeliveryCourrier());
-//        createdProduct.setName(productDTO.getName());
-//        createdProduct.setTrackingNumber(productDTO.getTrackingNumber());
-//        createdProduct.setStatusInWarehouse(productDTO.getStatusInWarehouse());
-//        createdProduct.setCountryOfPosting(productDTO.getCountryOfPosting());
-//        createdProduct.setContractor(productDTO.getContractor());
-//        createdProduct.setCategoryID(productDTO.getCategoryID());
-//
-//
-//        return "warehouse";
-//    }
+    @PostMapping("/products/add")
+    public String add(@ModelAttribute ProductDTO productDTO){
+        ProductDTO createdProductDTO = new ProductDTO();
+        Product createdProduct = new Product();
+        createdProduct.setPurchasePrice(productDTO.getPurchasePrice());
+        createdProduct.setDateOfPurchase(productDTO.getDateOfPurchase());
+        createdProduct.setDeliveryCourrier(productDTO.getDeliveryCourrier());
+        createdProduct.setName(productDTO.getName());
+        createdProduct.setTrackingNumber(productDTO.getTrackingNumber());
+        createdProduct.setStatusInWarehouse(productDTO.getStatusInWarehouse());
+        createdProduct.setCountryOfPosting(productDTO.getCountryOfPosting());
+        createdProduct.setContractor(productDTO.getContractor());
+        createdProduct.setCategoryID(productDTO.getCategoryID());
+        productRepository.save(createdProduct);
+
+        return "warehouse";
+    }
 
 
 }
