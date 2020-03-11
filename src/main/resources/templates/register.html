@@ -16,15 +16,15 @@
     <h5 class="text-primary"> Author: Natalia Kolczyk </h5>
     <br>
 
-    <form th:action="@{employee/register}" method="post" align="center">
+    <form th:action="@{/register}" method="post" align="center">
         <fieldset align="center">
             <div class="row">
                 <div class="col col-12">
                     <div class="form-group">
                         <legend><h5>Fill in the form to register</h5></legend>
                         <label>
-                            <input type="number" name="employeeID" class="form-control" required="reguired"
-                                   placeholder="Enter your ID"/>
+                            <input type="text" name="username" class="form-control" required="reguired"
+                                   placeholder="Enter your username"/>
                         </label>
                     </div>
                     <div class="form-group">

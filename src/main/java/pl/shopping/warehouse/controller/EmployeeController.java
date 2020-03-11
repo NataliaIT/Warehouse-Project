@@ -16,10 +16,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/")
 public class EmployeeController {
-
-    int idEmployee;
 
     @Autowired
     EmployeeRepository employeeRepository;
@@ -46,19 +44,19 @@ public class EmployeeController {
 //        if (optionalUser.isPresent()) {
 //
 //            EmployeeDTO userDTO = EmployeeToEmployeeDTOConverter.convert(optionalUser.get());
-//
-//            return ResponseEntity.status(HttpStatus.OK).body(userDTO);
-//        }
-//        else {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nie znaleziono użytkownika");
-//        }
-//    }
+////
+////            return ResponseEntity.status(HttpStatus.OK).body(userDTO);
+////        }
+////        else {
+////            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nie znaleziono użytkownika");
+////        }
+//////    }
 //    @PostMapping("/login")
 //    public String login(@ModelAttribute LoginDTO loginDTO) {
 //        Optional<Employee> optionalEmployee =
-//                employeeRepository.findByEmployeeIDAndPassword(loginDTO.getEmployeeID(), loginDTO.getPassword());
+//                employeeRepository.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
 //
-//        //EmployeeDTO userDTO = EmployeeToEmployeeDTOConverter.convert(optionalEmployee.get());
+//        EmployeeDTO userDTO = EmployeeToEmployeeDTOConverter.convert(optionalEmployee.get());
 //        if (optionalEmployee.isPresent()) return "warehouse";
 //        else {
 //            return "invalidLogin";
