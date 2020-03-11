@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Invalid login</title>
+    <title>Invalid Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,15 +16,15 @@
     <h5 class="text-primary"> Author: Natalia Kolczyk </h5>
     <br>
 
-    <form th:action="@{employee/login}" method="post" align="center">
+    <form th:action="@{/login}" method="post" align="center">
         <fieldset align="center">
             <div class="row">
                 <div class="col col-12">
                     <div class="form-group">
                         <legend><h5>Please Sign-In</h5></legend>
                         <label>
-                            <input type="number" name="employeeID" class="form-control" required="reguired"
-                                   placeholder="Enter your ID"/>
+                            <input type="text" name="username" class="form-control" required="reguired"
+                                   placeholder="Enter your Username"/>
                         </label>
                     </div>
                     <div class="form-group">
@@ -35,12 +35,14 @@
                     </div>
                     <p class="text-danger"> Invalid ID or password! </p>
                     <div class="form-group">
+                        <a class="text-muted" href="/register">You don't have account? Click here to register</a>
+                    </div>
+                                        <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Sin-In"/>
                     </div>
+
                 </div>
             </div>
-
-
         </fieldset>
     </form>
 

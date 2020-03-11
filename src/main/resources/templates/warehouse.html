@@ -22,7 +22,8 @@
 <!--<div class="container">-->
 <!--    <h3>-->
 <!--        <a href="https://primestudyhub.blogspot.com/search/label/Bootstrap%204" target="_blank">ADD NEW PRODUCT</a></h3>-->
-<!--    <form class="needs-validation" novalidate th:action="@{/addProduct}" method="post">-->
+<!--    <form class="needs-validation" novalidate th:action="@{/products/add}" method="post">-->
+
 <!--        <div class="form-row">-->
 <!--            <div class="input-group col-md-4 mb-2 mr-sm-2">-->
 <!--                <div class="input-group-prepend">-->
@@ -171,30 +172,30 @@
 
 <!--<br>-->
 
-<!--<table class="table table-hover table-bordered">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>productID</th>-->
-<!--        <th>name</th>-->
-<!--        <th>categoryID</th>-->
-<!--        <th>dateOfPurchase</th>-->
-<!--        <th>purchasePrice</th>-->
-<!--        <th>contractor</th>-->
-<!--        <th>trackingNumber</th>-->
-<!--        <th>countryOfPosting</th>-->
-<!--        <th>deliveryCourrier</th>-->
-<!--        <th>statusInWarehouse</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>productID</th>
+        <th>name</th>
+        <th>categoryID</th>
+        <th>dateOfPurchase</th>
+        <th>purchasePrice</th>
+        <th>contractor</th>
+        <th>trackingNumber</th>
+        <th>countryOfPosting</th>
+        <th>deliveryCourrier</th>
+        <th>statusInWarehouse</th>
+    </tr>
+    </thead>
+    <tbody>
 <!--    <tr>-->
 <!--        <td scope="row" th:each="position : ${@ProductController.getProduct()}"></td>-->
 <!--        <td th:text="${position.getProductID}"></td>-->
 <!--        <td></td>-->
 <!--    </tr>-->
 
-<!--    </tbody>-->
-<!--</table>-->
+    </tbody>
+</table>
 
 
 </body>
