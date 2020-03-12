@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/products")
+
 public class ProductController {
 
     @Autowired
@@ -32,8 +32,8 @@ public class ProductController {
     @Autowired
     private EmployeeController employeeController;
 
-    @Autowired
-    private ProductDTO productDTO;
+//    @Autowired
+//    private ProductDTO productDTO;
 
 
 
@@ -70,22 +70,22 @@ public class ProductController {
 */
 
 
-    @PostMapping("/add")
-    public String add(@ModelAttribute ProductDTO productDTO){
-            Product createdProduct = new Product();
-            createdProduct.setPurchasePrice(productDTO.getPurchasePrice());
-            createdProduct.setDateOfPurchase(productDTO.getDateOfPurchase());
-            createdProduct.setDeliveryCourrier(productDTO.getDeliveryCourrier());
-            createdProduct.setName(productDTO.getName());
-            createdProduct.setTrackingNumber(productDTO.getTrackingNumber());
-            createdProduct.setStatusInWarehouse(productDTO.getStatusInWarehouse());
-            createdProduct.setCountryOfPosting(productDTO.getCountryOfPosting());
-            createdProduct.setContractor(productDTO.getContractor());
-            createdProduct.setCategoryID(productDTO.getCategoryID());
-
-
-            return "warehouse";
-        }
+//    @PostMapping("/add")
+//    public String add(@ModelAttribute ProductDTO productDTO){
+//            Product createdProduct = new Product();
+//            createdProduct.setPurchasePrice(productDTO.getPurchasePrice());
+//            createdProduct.setDateOfPurchase(productDTO.getDateOfPurchase());
+//            createdProduct.setDeliveryCourrier(productDTO.getDeliveryCourrier());
+//            createdProduct.setName(productDTO.getName());
+//            createdProduct.setTrackingNumber(productDTO.getTrackingNumber());
+//            createdProduct.setStatusInWarehouse(productDTO.getStatusInWarehouse());
+//            createdProduct.setCountryOfPosting(productDTO.getCountryOfPosting());
+//            createdProduct.setContractor(productDTO.getContractor());
+//            createdProduct.setCategoryID(productDTO.getCategoryID());
+//
+//
+//            return "warehouse";
+//        }
 
 
 //    @GetMapping("/getList")
@@ -116,13 +116,13 @@ public class ProductController {
     public Map<Integer, ProductDTO> getProduct() {
         Map<Integer, ProductDTO> reversList = new HashMap<>();
 
-        List<ProductDTO> findListEmployee = productRepository.findAll().stream()
+        List<ProductDTO> productList = productRepository.findAll().stream()
                 .map(ProductMapper::mapToProductDTO)
                 .collect(Collectors.toList());
 
         int count = 1;
-        for (int i = findListEmployee.size() - 1; i >= 0; i--) {
-            reversList.put(count, findListEmployee.get(i));
+        for (int i = productList.size() - 1; i >= 0; i--) {
+            reversList.put(count, productList.get(i));
             count++;
         }
         return reversList;
