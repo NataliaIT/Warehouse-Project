@@ -7,10 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import pl.shopping.warehouse.converter.EmployeeDTOToEmployeeConverter;
 import pl.shopping.warehouse.dto.ProductDTO;
 import pl.shopping.warehouse.dto.RegisterDTO;
 import pl.shopping.warehouse.entity.Employee;
 import pl.shopping.warehouse.entity.Product;
+import pl.shopping.warehouse.mapper.ProductMapper;
 import pl.shopping.warehouse.repository.EmployeeRepository;
 import pl.shopping.warehouse.repository.ProductRepository;
 
@@ -21,17 +23,17 @@ import java.util.stream.Collectors;
 @RequestMapping("/products")
 public class ProductController {
 
-//    @Autowired
-//    private ProductRepository productRepository;
-//
-//    @Autowired
-//    private EmployeeRepository employeeRepository;
-//
-//    @Autowired
-//    private EmployeeController employeeController;
-//
-//    @Autowired
-//    private ProductDTO productDTO;
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private EmployeeController employeeController;
+
+    @Autowired
+    private ProductDTO productDTO;
 
 
 
@@ -67,24 +69,23 @@ public class ProductController {
     }
 */
 
-//
-//    @PostMapping("/add")
-//    public String add(@ModelAttribute ProductDTO productDTO){
-//            Product createdProduct = new Product();
-//            createdProduct.setPurchasePrice(productDTO.getPurchasePrice());
-//            createdProduct.setDateOfPurchase(productDTO.getDateOfPurchase());
-//            createdProduct.setDeliveryCourrier(productDTO.getDeliveryCourrier());
-//            createdProduct.setName(productDTO.getName());
-//            createdProduct.setTrackingNumber(productDTO.getTrackingNumber());
-//            createdProduct.setStatusInWarehouse(productDTO.getStatusInWarehouse());
-//            createdProduct.setCountryOfPosting(productDTO.getCountryOfPosting());
-//            createdProduct.setContractor(productDTO.getContractor());
-//            createdProduct.setCategoryID(productDTO.getCategoryID());
-//
-//
-//            return "warehouse";
-//        }
 
+    @PostMapping("/add")
+    public String add(@ModelAttribute ProductDTO productDTO){
+            Product createdProduct = new Product();
+            createdProduct.setPurchasePrice(productDTO.getPurchasePrice());
+            createdProduct.setDateOfPurchase(productDTO.getDateOfPurchase());
+            createdProduct.setDeliveryCourrier(productDTO.getDeliveryCourrier());
+            createdProduct.setName(productDTO.getName());
+            createdProduct.setTrackingNumber(productDTO.getTrackingNumber());
+            createdProduct.setStatusInWarehouse(productDTO.getStatusInWarehouse());
+            createdProduct.setCountryOfPosting(productDTO.getCountryOfPosting());
+            createdProduct.setContractor(productDTO.getContractor());
+            createdProduct.setCategoryID(productDTO.getCategoryID());
+
+
+            return "warehouse";
+        }
 
 
 //    @GetMapping("/getList")
@@ -94,21 +95,41 @@ public class ProductController {
 //    }
 
 
-
-//    @GetMapping("/getProduct")
-//    public Map<Integer, ProductDTO> getProduct() {
-//        Map<Integer, ProductDTO> productList = new HashMap<>();
+//    @GetMapping("/getEmployeeCard")
+//    public Map<Integer, WorkCardDTO> getEmployeeCard() {
+//        Map<Integer, WorkCardDTO> reversList = new HashMap<>();
 //
-//        //      List<ProductDTO> findListEmployee = productRepository.findAll().stream()
-//        //              .collect(Collectors.toList());
-////
-////
-////        int count = 1;
-////        for (int i = findListEmployee.size() - 1; i >= 0; i--) {
-////            reversList.put(count, findListEmployee.get(i));
-////            count++;
-//               }
- //       return productList;
+//        List<WorkCardDTO> findListEmployee = workCardRepository.findAll().stream()
+//                .filter(e -> e.getUserId().equals(employeeController.idEmployee))
+//                .map(WorkCardMapper::mapToWorkCardDTO)
+//                .collect(Collectors.toList());
+//
+//        int count = 1;
+//        for (int i = findListEmployee.size() - 1; i >= 0; i--) {
+//            reversList.put(count, findListEmployee.get(i));
+//            count++;
+//        }
+//        return reversList;
 //    }
+
+    @GetMapping("/getProduct")
+    public Map<Integer, ProductDTO> getProduct() {
+        Map<Integer, ProductDTO> reversList = new HashMap<>();
+
+        List<ProductDTO> findListEmployee = productRepository.findAll().stream()
+                .map(ProductMapper::mapToProductDTO)
+                .collect(Collectors.toList());
+
+        int count = 1;
+        for (int i = findListEmployee.size() - 1; i >= 0; i--) {
+            reversList.put(count, findListEmployee.get(i));
+            count++;
+        }
+        return reversList;
+    }
 }
+
+
+
+
 

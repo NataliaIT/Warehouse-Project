@@ -25,6 +25,19 @@ public class Product {
     public Product() {
     }
 
+    public Product(Integer productID, String name, String categoryID, String dateOfPurchase, Double purchasePrice, String contractor, String trackingNumber, String countryOfPosting, String deliveryCourrier, String statusInWarehouse) {
+        this.productID = productID;
+        this.name = name;
+        this.categoryID = categoryID;
+        this.dateOfPurchase = dateOfPurchase;
+        this.purchasePrice = purchasePrice;
+        this.contractor = contractor;
+        this.trackingNumber = trackingNumber;
+        this.countryOfPosting = countryOfPosting;
+        this.deliveryCourrier = deliveryCourrier;
+        this.statusInWarehouse = statusInWarehouse;
+    }
+
     public Integer getProductID() {
         return productID;
     }
