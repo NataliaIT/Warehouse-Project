@@ -191,16 +191,16 @@
     </thead>
     <tbody>
     <tr scope="row" th:each="position : ${@productController.getProduct()}">
-        <td th:text="${position.getValue().getProductID}"></td>
-        <td th:text="${position.getValue().getName}"></td>
-        <td th:text="${position.getValue().getCategoryID}"></td>
-        <td th:text="${position.getValue().getDateOfPurchase}"></td>
-        <td th:text="${position.getValue().getPurchasePrice}"></td>
-        <td th:text="${position.getValue().getContractor}"></td>
-        <td th:text="${position.getValue().getTrackingNumber}"></td>
-        <td th:text="${position.getValue().getCountryOfPosting}"></td>
-        <td th:text="${position.getValue().getDeliveryCourrier}"></td>
-        <td th:text="${position.getValue().getStatusInWarehouse}"></td>
+        <td th:text="${position.getValue().getProductID()}"></td>
+        <td th:text="${position.getValue().getName()}"></td>
+        <td th:text="${position.getValue().getCategoryID()}"></td>
+        <td th:text="${position.getValue().getDateOfPurchase()}"></td>
+        <td th:text="${position.getValue().getPurchasePrice()}"></td>
+        <td th:text="${position.getValue().getContractor()}"></td>
+        <td th:text="${position.getValue().getTrackingNumber()}"></td>
+        <td th:text="${position.getValue().getCountryOfPosting()}"></td>
+        <td th:text="${position.getValue().getDeliveryCourrier()}"></td>
+        <td th:text="${position.getValue().getStatusInWarehouse()}"></td>
         <td></td>
     </tr>
 
